@@ -1,0 +1,21 @@
+{
+  "name": "curlstart",
+  "version": "1.0.0",
+  "description": "Very simple monitoring solution.  If it gets anything but a 200 status code on an http response it restarts the desired process.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "monitor",
+    "curl",
+    "statuscode"
+  ],
+  "author": "Martin Murphy",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "node-cron": "^1.1.2",
+    "request": "^2.79.0"
+  }
+}
