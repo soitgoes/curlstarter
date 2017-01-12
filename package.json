@@ -1,5 +1,5 @@
 {
-  "name": "curlstart",
+  "name": "curlstarter",
   "version": "1.0.0",
   "description": "Very simple monitoring solution.  If it gets anything but a 200 status code on an http response it restarts the desired process.",
   "main": "app.js",
@@ -14,8 +14,10 @@
   "author": "Martin Murphy",
   "license": "ISC",
   "dependencies": {
+    "bunyan": "^1.8.5",
     "commander": "^2.9.0",
     "node-cron": "^1.1.2",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
   }
 }
