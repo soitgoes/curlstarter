@@ -3,9 +3,9 @@ A simple web monitoring solution.  No 200 == restart.
 
 `npm install -g curlstarter`
 
-To see the options of curl starter just execute it with no params
+To see the options of curl starter just execute it with --help
 
-`curlstarter`
+`curlstarter --help`
 
 Play with it till you get the args right and then set it up to launch system start.  Here is a simple example
 
