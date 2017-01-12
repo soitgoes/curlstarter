@@ -4,7 +4,7 @@
   "description": "Very simple monitoring solution.  If it gets anything but a 200 status code on an http response it restarts the desired process.",
   "main": "app.js",
   "bin": {
-    "curlstarter": "app.js",
+    "curlstarter": "app.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
