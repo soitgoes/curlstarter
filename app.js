@@ -2,7 +2,7 @@
 
 const request = require('request-promise');
 const exec = require('child_process').exec;
-const logger = require('bunyan').createLogger({name: "curlstart"});
+
 var program = require('commander');
 
 program
@@ -10,15 +10,37 @@ program
   .option('-u, --url <url>', 'Url to monitor')
   .option('-i, --interval <interval>', 'Interval to poll')
   .option('-s, --start <start>', 'Start command')
+  .option('-l, --log <log>','Log output to')
   .parse(process.argv);
+
+
+
+  const logger = require('bunyan').createLogger({
+      name: 'curlstart',
+      streams: [{
+          type: 'rotating-file',
+          path: program.log || 'log.txt',
+          period: '1d',   // daily rotation
+          count: 1        // keep 3 back copies
+      },{
+        stream: process.stderr
+      }
+    ]
+  });
+
+if (!program.url){
+  logger.error("No url set.  Please set a url with -u")
+  return;
+}
+if (!program.start){
+  logger.error("No start command set.  Plesae set a start command with -s");
+  return;
+}
 
 function fail(err){
   logger.error(err, `Error checking ${program.url}`);
   logger.info("starting: `" + program.start + "`" );
-  if (!program.start){
-    logger.info("No start command set.  Nothing to do.");
-    return;
-  }
+
   exec(program.start, (error, stdout, stderr) => {
     if (error) {
       logger.error(`exec error: ${error}`);
