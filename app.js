@@ -33,7 +33,7 @@ if (!program.url){
   return;
 }
 if (!program.start){
-  logger.error("No start command set.  Plesae set a start command with -s");
+  logger.error("No start command set.  Please set a start command with -s");
   return;
 }
 
