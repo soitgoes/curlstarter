@@ -17,10 +17,10 @@
   "author": "Martin Murphy",
   "license": "ISC",
   "dependencies": {
-    "bunyan": "^1.8.5",
-    "commander": "^2.9.0",
-    "node-cron": "^1.1.2",
-    "request": "^2.79.0",
-    "request-promise": "^4.1.1"
+    "bunyan": "^1.8.12",
+    "commander": "^2.20.3",
+    "node-cron": "^1.2.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
   }
 }

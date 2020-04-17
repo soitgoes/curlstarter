@@ -23,7 +23,7 @@ program
           period: '1d',   // daily rotation
           count: 1        // keep 3 back copies
       },{
-        stream: process.stderr
+        stream: process.stdout
       }
     ]
   });
@@ -54,7 +54,11 @@ function fail(err){
 }
 
 function checkSite(){
-  return request({method:'GET', uri:program.url,simple:false, resolveWithFullResponse: true}).then((res) => {
+  return request({method:'GET', 
+                  uri:program.url,
+                  simple:false, 
+                  rejectUnauthorized:false,
+                  resolveWithFullResponse: true}).then((res) => {
       if (res.statusCode !== 200) fail(res.statusCode);
       logger.info("heartbeat success: " + program.url)
     })
@@ -62,4 +66,5 @@ function checkSite(){
       fail(err)
     });
 }
+logger.info("starting to log: " + program.url);
 setInterval(checkSite, program.interval ? parseInt(program.interval) : 10000)
